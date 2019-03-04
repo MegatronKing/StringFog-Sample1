@@ -1,0 +1,45 @@
+apply plugin: 'com.android.application'
+
+apply plugin: 'stringfog'
+
+stringfog {
+    key 'Hello Application'
+    enable true
+    debug false
+    // 指定加解密的具体实现类，可以用默认实现的xor库或者aes-cbc库，也可以自己定制实现，记得配置dependencies
+    implementation 'com.github.megatronking.stringfog.xor.StringFogImpl'
+    // 指定需加密的代码包路径，可配置多个，未指定将默认全部加密
+    fogPackages = ["com.github.megatronking.stringfog"]
+}
+
+android {
+    compileSdkVersion 28
+    defaultConfig {
+        applicationId "com.github.megatronking.stringfog.sample1"
+        minSdkVersion 21
+        targetSdkVersion 28
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+dependencies {
+    implementation project(':library')
+
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation 'com.android.support:appcompat-v7:28.0.0'
+    implementation 'com.android.support.constraint:constraint-layout:1.1.3'
+    testImplementation 'junit:junit:4.12'
+    androidTestImplementation 'com.android.support.test:runner:1.0.2'
+    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
+
+    // xor加解密库，stringfog中的implementation需依赖此库
+    implementation 'com.github.megatronking.stringfog:xor:1.0.0'
+}
