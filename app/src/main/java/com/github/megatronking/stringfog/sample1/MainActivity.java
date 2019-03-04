@@ -5,9 +5,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.widget.TextView;
 
-import com.github.megatronking.stringfog.sample1.library.LibTest;
-
-
 public class MainActivity extends AppCompatActivity {
 
     // Test static final fields
@@ -73,8 +70,6 @@ public class MainActivity extends AppCompatActivity {
 
         Log.i(tag, null_static_final);
         Log.i(tag, null_static);
-
-        Log.i(tag, LibTest.ACTION);
     }
 
 }

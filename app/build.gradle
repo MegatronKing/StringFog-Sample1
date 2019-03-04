@@ -3,7 +3,7 @@ apply plugin: 'com.android.application'
 apply plugin: 'stringfog'
 
 stringfog {
-    key 'Hello Application'
+    key 'Hello StringFog'
     enable true
     debug false
     // 指定加解密的具体实现类，可以用默认实现的xor库或者aes-cbc库，也可以自己定制实现，记得配置dependencies
@@ -31,8 +31,6 @@ android {
 }
 
 dependencies {
-    implementation project(':library')
-
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation 'com.android.support:appcompat-v7:28.0.0'
     implementation 'com.android.support.constraint:constraint-layout:1.1.3'
