@@ -1,4 +1,5 @@
 apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
 
 apply plugin: 'stringfog'
 
@@ -33,6 +34,9 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
+    sourceSets {
+        main.java.srcDirs += 'src/main/kotlin'
+    }
 }
 
 dependencies {
@@ -42,7 +46,8 @@ dependencies {
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'com.android.support.test:runner:1.0.2'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
+    implementation 'org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.3.11'
 
     // xor加解密库，stringfog中的implementation需依赖此库
-    implementation 'com.github.megatronking.stringfog:xor:1.0.0'
+    implementation 'com.github.megatronking.stringfog:xor:1.1.0'
 }

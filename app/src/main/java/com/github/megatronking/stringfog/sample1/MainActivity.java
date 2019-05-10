@@ -70,6 +70,10 @@ public class MainActivity extends AppCompatActivity {
 
         Log.i(tag, null_static_final);
         Log.i(tag, null_static);
+
+        // Test kotlin
+        KotlinTest kotlinTest = new KotlinTest();
+        kotlinTest.test();
     }
 
 }
