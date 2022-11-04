@@ -62,5 +62,5 @@ dependencies {
     implementation 'org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.6.10'
 
     // xor加解密库，stringfog中的implementation需依赖此库
-    implementation 'com.github.megatronking.stringfog:xor:4.0.0'
+    implementation 'com.github.megatronking.stringfog:xor:4.0.1'
 }
