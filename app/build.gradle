@@ -5,6 +5,7 @@ apply plugin: 'stringfog'
 
 // 导入RandomKeyGenerator类，如果不使用RandomKeyGenerator，可以删除此行
 import com.github.megatronking.stringfog.plugin.kg.RandomKeyGenerator
+import com.github.megatronking.stringfog.plugin.StringFogMode
 
 stringfog {
     enable true
@@ -18,13 +19,13 @@ stringfog {
     kg new RandomKeyGenerator()
     // 可选（4.0版本新增）：用于控制字符串加密后在字节码中的存在形式, 默认为base64，
     // 也可以使用text或者bytes
-    mode base64
+    mode StringFogMode.base64
 }
 
 android {
+    namespace "com.github.megatronking.stringfog.sample1"
     compileSdkVersion 31
     defaultConfig {
-        applicationId "com.github.megatronking.stringfog.sample1"
         minSdkVersion 21
         targetSdkVersion 31
         versionCode 1
@@ -62,5 +63,5 @@ dependencies {
     implementation 'org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.6.10'
 
     // xor加解密库，stringfog中的implementation需依赖此库
-    implementation 'com.github.megatronking.stringfog:xor:4.0.1'
+    implementation 'com.github.megatronking.stringfog:xor:5.0.0'
 }
